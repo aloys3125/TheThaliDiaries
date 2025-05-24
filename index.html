@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Thali Diaries 🍽️</title>
+    <link rel="stylesheet" href="thali.css">
+</head>
+<body>
+    <!-- Floating Elements -->
+    <div class="floating-element" style="top: 10%; left: 10%;">🍛</div>
+    <div class="floating-element" style="top: 20%; right: 15%;">🥘</div>
+    <div class="floating-element" style="bottom: 30%; left: 5%;">🍚</div>
+    <div class="floating-element" style="bottom: 20%; right: 10%;">🫓</div>
+    <div class="floating-element" style="top: 60%; left: 15%;">🥗</div>
+
+    <div class="box">
+        <header class="header">
+            <h1 class="title">🍽️ The Thali Diaries</h1>
+            <p class="subtitle">Build Your Perfect Indian Thali & Track Your Nutrition Journey</p>
+            
+            <div class="nav-buttons">
+                <button class="nav-button active" onclick="showSection('builder')">🍛 Build Thali</button>
+                <button class="nav-button" onclick="showSection('diary')">📖 My Diary</button>
+            </div>
+        </header>
+
+        <!-- Thali Builder Section -->
+        <main id="builder" class="main-content active">
+            <div class="thali-builder">
+                <!-- Food Items  -->
+                <div class="food-items">
+                    <div class="food-category">
+                        <h3 class="category-title">🍛 Main Course</h3>
+                        <div class="food-grid" id="main-course"></div>
+                    </div>
+                    
+                    <div class="food-category">
+                        <h3 class="category-title">🍚 Rice & Bread</h3>
+                        <div class="food-grid" id="rice-bread"></div>
+                    </div>
+                    
+                    <div class="food-category">
+                        <h3 class="category-title">🥗 Vegetables</h3>
+                        <div class="food-grid" id="vegetables"></div>
+                    </div>
+                    
+                    <div class="food-category">
+                        <h3 class="category-title">🍮 Desserts</h3>
+                        <div class="food-grid" id="desserts"></div>
+                    </div>
+                </div>
+
+                <!-- Thali Plate -->
+                <div class="thali-box">
+                    <div class="thali-plate">
+                        <div class="thali-section section-center" data-section="main" title="Main Course"></div>
+                        <div class="thali-section section-top" data-section="rice" title="Rice/Bread"></div>
+                        <div class="thali-section section-bottom" data-section="dessert" title="Dessert"></div>
+                        <div class="thali-section section-left" data-section="dal" title="Dal/Curry"></div>
+                        <div class="thali-section section-right" data-section="vegetable" title="Vegetable"></div>
+                        <div class="thali-section section-top-left" data-section="side" title="Side Dish"></div>
+                    </div>
+                    
+                    <div class="thali-actions">
+                        <button class="action-button button-save" onclick="saveThali()">💾 Save to Diary</button>
+                        <button class="action-button button-clear" onclick="clearThali()">🗑️ Clear Thali</button>
+                    </div>
+                </div>
+
+                <!-- Nutrition Panel -->
+                <div class="nutrition-panel">
+                    <h3 class="nutrition-title">📊 Nutrition Facts</h3>
+                    <div id="nutrition-content">
+                        <div class="nutrition-item">
+                            <span>Calories</span>
+                            <span id="calories">0</span>
+                        </div>
+                        <div class="nutrition-bar">
+                            <div class="nutrition-fill" id="calories-bar"></div>
+                        </div>
+                        
+                        <div class="nutrition-item">
+                            <span>Protein</span>
+                            <span id="protein">0g</span>
+                        </div>
+                        <div class="nutrition-bar">
+                            <div class="nutrition-fill" id="protein-bar"></div>
+                        </div>
+                        
+                        <div class="nutrition-item">
+                            <span>Carbs</span>
+                            <span id="carbs">0g</span>
+                        </div>
+                        <div class="nutrition-bar">
+                            <div class="nutrition-fill" id="carbs-bar"></div>
+                        </div>
+                        
+                        <div class="nutrition-item">
+                            <span>Fiber</span>
+                            <span id="fiber">0g</span>
+                        </div>
+                        <div class="nutrition-bar">
+                            <div class="nutrition-fill" id="fiber-bar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="balance-indicator" id="balance-indicator">
+                        🎯 Add items to see balance
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Diary Section -->
+        <main id="diary" class="main-content">
+            <div class="diary-header">
+                <h2>📖 My Thali Diary</h2>
+                <p>Track your delicious journey through Indian cuisine</p>
+            </div>
+            
+            <div class="diary-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="total-thalis">0</div>
+                    <div class="stat-label">Total Thalis</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="avg-calories">0</div>
+                    <div class="stat-label">Avg Calories</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="balanced-meals">0</div>
+                    <div class="stat-label">Balanced Meals</div>
+                </div>
+            </div>
+            
+            <div class="diary-entries" id="diary-entries">
+                <!-- Dynamically populated -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h3>🎉 Thali Saved!</h3>
+            <p>Your delicious thali has been added to your diary.</p>
+            <div style="font-size: 3rem; margin: 20px 0;">🍽️</div>
+        </div>
+    </div>
+
+    <script src="thali.js"></script>
+</body>
+</html>
