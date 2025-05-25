@@ -1,5 +1,6 @@
 The Thali Diaries
 The Thali Diaries is a vibrant and interactive web application that lets users build their own Indian thali (meal plate), decode its nutrition, and track their meals in a beautiful diary all using just HTML, CSS, and JavaScript
+Live link https://6832a8af17bab2afd05347d0--regal-druid-de55f0.netlify.app/
 
 Features
 
